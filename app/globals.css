@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* DAC Brand System
+ * -------------------------------------------------------------------
+ * Based on the provided brand guideline screenshots.
+ * Primary typeface: Archivo Narrow (headlines/display, italic preferred)
+ * Secondary typeface: Archivo (body, labels, supporting text)
+ * ------------------------------------------------------------------- */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* TEMP: HEX values are approximated from screenshot swatches. */
+  --color-base: #07055a;            /* DAC Navy */
+  --color-surface: #0d0b6f;         /* Deep navy panel */
+  --color-section: #090760;         /* Alt section navy */
+  --color-divider: #3f4392;         /* Navy divider */
+  --color-accent: #d03a8a;          /* Electric Pink */
+  --color-accent-hover: #b82d78;    /* Electric Pink hover */
+  --color-support: #9dc0d4;         /* Pale Blue */
+  --color-main: #f6f8ff;            /* Light foreground */
+  --color-secondary: #cad8e6;       /* Secondary text */
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-base);
+  color: var(--color-main);
+  font-family: var(--font-archivo), sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-archivo-narrow), sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.brand-subheading {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.brand-label {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.brand-body {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.brand-panel {
+  background:
+    linear-gradient(165deg, rgba(7, 5, 90, 0.96) 0%, rgba(9, 7, 96, 0.98) 58%, rgba(13, 11, 111, 0.94) 100%),
+    radial-gradient(circle at 80% 15%, rgba(208, 58, 138, 0.16) 0%, transparent 46%);
 }
