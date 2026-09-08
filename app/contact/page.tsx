@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
+import Link from 'next/link'
 import { MapEmbed } from '@/components/MapEmbed'
-import { BUSINESS } from '@/lib/constants'
+import { BUSINESS, BRANCHES } from '@/lib/constants'
 
 /* Metadata is handled by the Server Component wrapper below */
 
@@ -165,7 +166,7 @@ function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="brand-subheading w-full bg-accent hover:bg-accent-hover disabled:opacity-60 text-main py-3.5 rounded-xl transition-colors text-xs"
+        className="brand-subheading w-full bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent py-3.5 rounded-xl transition-colors text-xs"
       >
         {status === 'loading' ? 'Sending…' : 'Send Message'}
       </button>
@@ -202,6 +203,13 @@ export default function ContactPage() {
             {/* TEMP [COPY] */}
             Have a question or ready to book? Drop us a message, call us on WhatsApp, or
             come visit us at either of our Nairobi branches.
+          </p>
+          <p className="brand-body text-secondary text-sm mt-4">
+            Looking to book a specific service or get a quote?{' '}
+            <Link href="/enquiry" className="text-accent hover:underline underline-offset-4">
+              Use our quote form
+            </Link>{' '}
+            for a faster response.
           </p>
         </div>
       </section>
@@ -260,9 +268,9 @@ export default function ContactPage() {
                 <h3 className="brand-subheading text-xs text-main mb-3">
                   Locations
                 </h3>
-                {BUSINESS.locations.map((loc) => (
+                {BRANCHES.map((branch) => (
                   <div
-                    key={loc}
+                    key={branch.name}
                     className="flex items-start gap-3 p-4 bg-surface border border-divider rounded-xl mb-3"
                   >
                     <svg
@@ -277,13 +285,14 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                     </svg>
                     <div>
-                      <p className="brand-subheading text-main text-xs">{loc}</p>
-                      {loc === "Lang'ata" && <p className="brand-body text-secondary text-xs mt-0.5">{BUSINESS.address}</p>}
-                      {loc === 'Upperhill' && (
-                        <p className="brand-body text-secondary text-xs mt-0.5">
-                          Upperhill, Nairobi {/* TEMP: add Upperhill full address */}
-                        </p>
-                      )}
+                      <p className="brand-subheading text-main text-xs">{branch.name}</p>
+                      <p className="brand-body text-secondary text-xs mt-0.5">{branch.address}</p>
+                      <a
+                        href={`mailto:${branch.email}`}
+                        className="brand-body text-accent text-xs mt-0.5 inline-block hover:underline"
+                      >
+                        {branch.email}
+                      </a>
                     </div>
                   </div>
                 ))}

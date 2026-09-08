@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "placehold.co",
       },
+      {
+        // TEMP: loremflickr.com serves topic-relevant stock photos for missing imagery.
+        // Remove once all placeholder <Image> srcs are replaced with real photography.
+        protocol: "https",
+        hostname: "loremflickr.com",
+      },
     ],
   },
 };

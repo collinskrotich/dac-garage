@@ -22,6 +22,20 @@ export const BUSINESS = {
     'https://maps.google.com/maps?q=Mai+Mahiu+Rd+Langata+Nairobi+Kenya&output=embed&iwloc=&z=15',
 } as const
 
+/** Per-branch contact details — used on Contact, home Location section, and Footer. */
+export const BRANCHES = [
+  {
+    name: "Lang'ata",
+    address: BUSINESS.address,
+    email: 'langata@dautoclinic.com',
+  },
+  {
+    name: 'Upperhill',
+    address: 'Upperhill, Nairobi', // TEMP: add full Upperhill street address
+    email: 'upperhill@dautoclinic.com',
+  },
+] as const
+
 export const SERVICES = [
   {
     id: 'car-wash-detailing',
@@ -58,6 +72,37 @@ export const SERVICES = [
     `, // [COPY]
     icon: 'tune',
     href: '/services#customisation-tuning',
+  },
+] as const
+
+/** Approved proof points — do not add unverified figures here. */
+export const STATS = [
+  { value: '3,000+', label: 'Cars Serviced Annually' },
+  { value: '95%', label: 'Customer Satisfaction' },
+  { value: '2', label: 'Nairobi Locations' },
+] as const
+
+/** Site-wide FAQ — also rendered as FAQPage structured data on the home page. */
+export const SITE_FAQS = [
+  {
+    question: 'Which areas of Nairobi does DAC Auto serve?',
+    answer:
+      "We operate from Lang'ata and Upperhill, and regularly serve customers from across greater Nairobi.",
+  },
+  {
+    question: 'Do I need an appointment for a car wash or detailing service?',
+    answer:
+      'Walk-ins are welcome, but messaging us on WhatsApp first helps us confirm availability and give you an accurate time estimate.',
+  },
+  {
+    question: 'Can DAC Auto help with an insurance repair claim?',
+    answer:
+      "Yes — we can prepare repair quotes and documentation for your insurer. We always recommend confirming your policy's specific requirements with your insurance provider first.",
+  },
+  {
+    question: 'How do I get a price for my vehicle?',
+    answer:
+      "Pricing depends on your vehicle and the work required. Send us your vehicle details and service on WhatsApp or the enquiry form and we'll respond with a quote.",
   },
 ] as const
 

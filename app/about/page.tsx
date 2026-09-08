@@ -1,7 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
+import { TrustStats } from "@/components/TrustStats";
 import { BUSINESS } from "@/lib/constants";
+import { placeholderImage } from "@/lib/placeholder-image";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -19,33 +22,27 @@ const TEAM = [
   {
     name: "Team Member", // TEMP [COPY]: Replace with actual name
     role: "Lead Technician", // TEMP [COPY]
-    src: "https://placehold.co/300x300/0d0b6f/9dc0d4?text=Photo+—+TEMP",
-    alt: "Team member photo — TEMP placeholder",
+    src: placeholderImage(["mechanic", "portrait"], 300, 300, 501),
+    alt: "Team member photo — placeholder image, replace with real staff photo",
   },
   {
     name: "Team Member", // TEMP [COPY]
     role: "Paint & Body Specialist", // TEMP [COPY]
-    src: "https://placehold.co/300x300/07055a/d03a8a?text=Photo+—+TEMP",
-    alt: "Team member photo — TEMP placeholder",
+    src: placeholderImage(["mechanic", "portrait"], 300, 300, 502),
+    alt: "Team member photo — placeholder image, replace with real staff photo",
   },
   {
     name: "Team Member", // TEMP [COPY]
     role: "Detailing Expert", // TEMP [COPY]
-    src: "https://placehold.co/300x300/0d0b6f/9dc0d4?text=Photo+—+TEMP",
-    alt: "Team member photo — TEMP placeholder",
+    src: placeholderImage(["mechanic", "portrait"], 300, 300, 503),
+    alt: "Team member photo — placeholder image, replace with real staff photo",
   },
   {
     name: "Team Member", // TEMP [COPY]
     role: "Customisation Specialist", // TEMP [COPY]
-    src: "https://placehold.co/300x300/07055a/d03a8a?text=Photo+—+TEMP",
-    alt: "Team member photo — TEMP placeholder",
+    src: placeholderImage(["mechanic", "portrait"], 300, 300, 504),
+    alt: "Team member photo — placeholder image, replace with real staff photo",
   },
-];
-
-const STATS = [
-  { value: "2+", label: "Nairobi Locations" }, // TEMP [COPY]
-  { value: "500+", label: "Cars Served" }, // TEMP [COPY]
-  { value: "100%", label: "Satisfaction Goal" }, // TEMP [COPY]
 ];
 
 export default function AboutPage() {
@@ -103,8 +100,8 @@ export default function AboutPage() {
           {/* Story image — TEMP */}
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-divider">
             <Image
-              src="https://placehold.co/800x600/07055a/9dc0d4?text=Garage+Story+Photo+—+TEMP"
-              alt="DAC Auto Clinic garage — TEMP placeholder"
+              src={placeholderImage(["garage", "mechanic"], 800, 600, 505)}
+              alt="DAC Auto Clinic garage — placeholder image, replace with real garage photo"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -116,16 +113,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="bg-section border-y border-divider py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <p className="text-4xl font-black text-accent mb-1">{s.value}</p>
-                <p className="brand-label text-secondary text-[11px]">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <TrustStats />
         </div>
       </section>
 
@@ -226,16 +214,16 @@ export default function AboutPage() {
         </h2>
         <p className="brand-body text-secondary mb-7">
           {/* TEMP [COPY] */}
-          Book your next service on WhatsApp — fast, easy, no fuss.
+          Book your next service on WhatsApp, or send us an enquiry — fast, easy, no fuss.
         </p>
-        <a
-          href={BUSINESS.whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="brand-subheading inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-main text-xs px-8 py-4 rounded-xl transition-colors"
-        >
-          Book on WhatsApp
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/enquiry" className="btn btn-primary">
+            Book a Service
+          </Link>
+          <a href={BUSINESS.whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            Book on WhatsApp
+          </a>
+        </div>
       </section>
     </>
   );

@@ -1,13 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BUSINESS } from '@/lib/constants'
+import { BUSINESS, BRANCHES } from '@/lib/constants'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Learn', href: '/blog' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Testimonials', href: '/testimonials' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Get a Quote', href: '/enquiry' },
 ]
 
 export function Footer() {
@@ -136,6 +140,13 @@ export function Footer() {
                   {BUSINESS.whatsapp}
                 </a>
               </li>
+              {BRANCHES.map((branch) => (
+                <li key={branch.email}>
+                  <a href={`mailto:${branch.email}`} className="hover:text-main transition-colors">
+                    {branch.name}: {branch.email}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={BUSINESS.instagramLink}

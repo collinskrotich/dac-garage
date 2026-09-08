@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SITE_URL } from "@/lib/structured-data";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
    * TEMP SEO metadata — review and refine with final brand messaging before launch.
    * Add social preview images (OG / Twitter card) once brand photography is available.
    */
+  metadataBase: new URL(SITE_URL), // TEMP: SITE_URL in lib/structured-data.ts is a placeholder domain
   title: {
     default: "Dekker Auto Clinic | DAC Auto — Nairobi Car Wash, Repairs & Customisation",
     template: "%s | DAC Auto — Nairobi",
@@ -39,11 +41,19 @@ export const metadata: Metadata = {
     "Upperhill garage",
     "Langata car service",
     "Mai Mahiu Rd garage",
+    "car insurance claim Kenya",
+    "vehicle inspection Nairobi",
+    "how to check brake pads",
+    "how to change a tyre",
+    "car maintenance tips Kenya",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://dacauto.co.ke", // TEMP: update with live domain
+    url: SITE_URL,
     siteName: "Dekker Auto Clinic",
     title: "Dekker Auto Clinic — All In One Auto-Care! Nairobi",
     description:

@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
 import { BUSINESS } from "@/lib/constants";
+import { placeholderImage } from "@/lib/placeholder-image";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 /*
- * TEMP: All images below are placeholders.
+ * TEMP: All images below are placeholders sourced from loremflickr.com.
  * Replace each entry's `src` with real before/after gallery photos.
  * Recommended size: 800×600px minimum, optimised WebP/JPEG.
  */
@@ -18,73 +19,73 @@ const GALLERY_ITEMS = [
   {
     label: "Full Detail — Before",
     category: "Car Wash & Detailing",
-    src: "https://placehold.co/800x600/07055a/9dc0d4?text=Before+—+TEMP",
+    src: placeholderImage(["car", "dirty"], 800, 600, 201),
     type: "before" as const,
   },
   {
     label: "Full Detail — After",
     category: "Car Wash & Detailing",
-    src: "https://placehold.co/800x600/0d0b6f/d03a8a?text=After+—+TEMP",
+    src: placeholderImage(["carwash", "clean"], 800, 600, 202),
     type: "after" as const,
   },
   {
     label: "Dent Repair — Before",
     category: "Paint & Accident Repairs",
-    src: "https://placehold.co/800x600/07055a/9dc0d4?text=Before+—+TEMP",
+    src: placeholderImage(["car", "dent"], 800, 600, 203),
     type: "before" as const,
   },
   {
     label: "Dent Repair — After",
     category: "Paint & Accident Repairs",
-    src: "https://placehold.co/800x600/0d0b6f/d03a8a?text=After+—+TEMP",
+    src: placeholderImage(["car", "bodywork"], 800, 600, 204),
     type: "after" as const,
   },
   {
     label: "Vinyl Wrap — Before",
     category: "Customisation & Tuning",
-    src: "https://placehold.co/800x600/07055a/9dc0d4?text=Before+—+TEMP",
+    src: placeholderImage(["car", "plain"], 800, 600, 205),
     type: "before" as const,
   },
   {
     label: "Vinyl Wrap — After",
     category: "Customisation & Tuning",
-    src: "https://placehold.co/800x600/0d0b6f/d03a8a?text=After+—+TEMP",
+    src: placeholderImage(["car", "vinylwrap"], 800, 600, 206),
     type: "after" as const,
   },
   {
     label: "Full Respray — Before",
     category: "Paint & Accident Repairs",
-    src: "https://placehold.co/800x600/07055a/9dc0d4?text=Before+—+TEMP",
+    src: placeholderImage(["car", "rust"], 800, 600, 207),
     type: "before" as const,
   },
   {
     label: "Full Respray — After",
     category: "Paint & Accident Repairs",
-    src: "https://placehold.co/800x600/0d0b6f/d03a8a?text=After+—+TEMP",
+    src: placeholderImage(["car", "paint"], 800, 600, 208),
     type: "after" as const,
   },
   {
     label: "Interior Detail — Before",
     category: "Car Wash & Detailing",
-    src: "https://placehold.co/800x600/07055a/9dc0d4?text=Before+—+TEMP",
+    src: placeholderImage(["car", "interior", "dirty"], 800, 600, 209),
     type: "before" as const,
   },
   {
     label: "Interior Detail — After",
     category: "Car Wash & Detailing",
-    src: "https://placehold.co/800x600/0d0b6f/d03a8a?text=After+—+TEMP",
+    src: placeholderImage(["car", "interior"], 800, 600, 210),
     type: "after" as const,
   },
   {
     label: "Alloy Refurb — Before",
     category: "Customisation & Tuning",
-    src: "https://placehold.co/800x600/07055a/9dc0d4?text=Before+—+TEMP",
+    src: placeholderImage(["wheel", "rusty"], 800, 600, 211),
     type: "before" as const,
   },
   {
     label: "Alloy Refurb — After",
     category: "Customisation & Tuning",
-    src: "https://placehold.co/800x600/0d0b6f/d03a8a?text=After+—+TEMP",
+    src: placeholderImage(["wheel", "alloy"], 800, 600, 212),
     type: "after" as const,
   },
 ];
@@ -136,7 +137,7 @@ export default function GalleryPage() {
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={item.src}
-                      alt={`${item.label} — TEMP placeholder`}
+                      alt={`${item.label} — placeholder image, replace with real gallery photo`}
                       fill
                       className="object-cover"
                       sizes="(max-width: 640px) 100vw, 50vw"
@@ -147,13 +148,13 @@ export default function GalleryPage() {
                     <span
                       className={`brand-label text-[10px] px-2 py-0.5 rounded mr-2 ${
                         item.type === "before"
-                          ? "bg-main/20 text-main"
-                          : "bg-accent text-main"
+                          ? "bg-on-dark/20 text-on-dark"
+                          : "bg-accent text-on-accent"
                       }`}
                     >
                       {item.type}
                     </span>
-                    <span className="brand-subheading text-main text-[11px]">
+                    <span className="brand-subheading text-on-dark text-[11px]">
                       {item.category}
                     </span>
                   </div>
@@ -177,7 +178,7 @@ export default function GalleryPage() {
             href={BUSINESS.instagramLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="brand-subheading inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-main text-xs px-6 py-3 rounded-xl transition-colors"
+            className="brand-subheading inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-on-accent text-xs px-6 py-3 rounded-xl transition-colors"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069Zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073Zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z" />

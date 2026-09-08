@@ -13,23 +13,45 @@
 
 @theme {
   /* TEMP: HEX values are approximated from screenshot swatches. */
-  --color-base: #07055a;            /* DAC Navy */
-  --color-surface: #0d0b6f;         /* Deep navy panel */
-  --color-section: #090760;         /* Alt section navy */
-  --color-divider: #3f4392;         /* Navy divider */
-  --color-accent: #d03a8a;          /* Electric Pink */
+  /* White base — navy and pink are the standout brand colours, not the background. */
+  --color-base: #ffffff;            /* Page background */
+  --color-surface: #ffffff;         /* Card panels (paired with --color-divider border) */
+  --color-surface-alt: #f2f4fb;     /* Recessed panel — product image wells etc. */
+  --color-section: #f5f7fc;         /* Pale blue-tinted alt section band */
+  --color-divider: #e2e6f3;         /* Light divider/border */
+  --color-accent: #d03a8a;          /* Electric Pink — standout #1 */
   --color-accent-hover: #b82d78;    /* Electric Pink hover */
-  --color-support: #9dc0d4;         /* Pale Blue */
-  --color-main: #f6f8ff;            /* Light foreground */
-  --color-secondary: #cad8e6;       /* Secondary text */
+  --color-navy: #07055a;            /* DAC Navy — standout #2 ("the blue"), reused for headings/icons/links */
+  --color-support: #9dc0d4;         /* Pale Blue — subtle tints only */
+  --color-main: #07055a;            /* Primary text/headings — DAC Navy for strong contrast on white */
+  --color-secondary: #4a4d70;       /* Secondary/body text */
+  --color-muted: #6c6f92;           /* Lower-emphasis text/labels */
+  /* Reserved for content on permanently-dark navy panels (Navbar, hero, bold CTA bands) */
+  --color-on-dark: #f6f8ff;
+  --color-on-dark-muted: #cad8e6;
+  --color-on-accent: #ffffff;       /* Text on solid accent (pink) fills, e.g. primary buttons */
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -47,6 +69,12 @@ h4 {
   font-style: italic;
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .brand-subheading {
@@ -73,4 +101,152 @@ h4 {
   background:
     linear-gradient(165deg, rgba(7, 5, 90, 0.96) 0%, rgba(9, 7, 96, 0.98) 58%, rgba(13, 11, 111, 0.94) 100%),
     radial-gradient(circle at 80% 15%, rgba(208, 58, 138, 0.16) 0%, transparent 46%);
+}
+
+/* ---- Premium UI primitives (shared across new/rebuilt pages) ---- */
+
+.btn {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: 0 10px 30px -12px rgba(208, 58, 138, 0.5);
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+}
+.btn-outline {
+  border: 1px solid color-mix(in srgb, var(--color-main) 30%, transparent);
+  background-color: color-mix(in srgb, var(--color-main) 5%, transparent);
+  color: var(--color-main);
+}
+.btn-outline:hover {
+  border-color: color-mix(in srgb, var(--color-main) 60%, transparent);
+  background-color: color-mix(in srgb, var(--color-main) 10%, transparent);
+}
+/* For buttons placed on permanently-dark navy panels (hero, bottom CTA) */
+.btn-outline-inverse {
+  border: 1px solid color-mix(in srgb, var(--color-on-dark) 30%, transparent);
+  background-color: color-mix(in srgb, var(--color-on-dark) 5%, transparent);
+  color: var(--color-on-dark);
+}
+.btn-outline-inverse:hover {
+  border-color: color-mix(in srgb, var(--color-on-dark) 60%, transparent);
+  background-color: color-mix(in srgb, var(--color-on-dark) 10%, transparent);
+}
+.btn-ghost {
+  color: var(--color-accent);
+}
+.btn-ghost:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: 1rem;
+}
+
+.card-hover {
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -20px rgba(208, 58, 138, 0.18);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+  color: var(--color-accent);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Long-form article typography */
+.prose-dac {
+  font-family: var(--font-archivo), sans-serif;
+  color: var(--color-secondary);
+  line-height: 1.75;
+}
+.prose-dac h2 {
+  color: var(--color-main);
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.prose-dac h3 {
+  color: var(--color-main);
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-dac p {
+  margin-bottom: 1.25rem;
+}
+.prose-dac ul,
+.prose-dac ol {
+  margin: 0 0 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.prose-dac ul {
+  list-style: disc;
+}
+.prose-dac ol {
+  list-style: decimal;
+}
+.prose-dac a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+.prose-dac strong {
+  color: var(--color-main);
+}
+.prose-dac blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--color-main);
+  font-style: italic;
 }

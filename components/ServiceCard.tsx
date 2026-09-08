@@ -55,7 +55,7 @@ export function ServiceCard({ title, description, icon, href, featured = false }
       }`}
     >
       {/* Icon */}
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent/10 text-accent mb-5 group-hover:bg-accent group-hover:text-main transition-colors duration-300">
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent/10 text-accent mb-5 group-hover:bg-accent group-hover:text-on-accent transition-colors duration-300">
         <Icon />
       </div>
 

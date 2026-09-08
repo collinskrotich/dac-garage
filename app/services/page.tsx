@@ -1,7 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Section, SectionHeading } from "@/components/Section";
+import { Section } from "@/components/Section";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BUSINESS, SERVICES } from "@/lib/constants";
+import { breadcrumbSchema, serviceSchema } from "@/lib/structured-data";
+import { placeholderImage } from "@/lib/placeholder-image";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -41,7 +44,7 @@ function ServiceDetail({ id, title, description, gallery }: ServiceDetailProps) 
             href={BUSINESS.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="brand-subheading inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-main text-xs px-6 py-3.5 rounded-xl transition-colors"
+            className="brand-subheading inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-on-accent text-xs px-6 py-3.5 rounded-xl transition-colors"
           >
             {/* WhatsApp icon */}
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -76,51 +79,51 @@ function ServiceDetail({ id, title, description, gallery }: ServiceDetailProps) 
   );
 }
 
-/* Build per-service gallery placeholders */
+/* Build per-service gallery placeholders — topic-relevant stock photos, not real DAC Auto work */
 const SERVICE_GALLERIES: Record<
   string,
   { src: string; alt: string }[]
 > = {
   "car-wash-detailing": [
     {
-      src: "https://placehold.co/800x450/07055a/9dc0d4?text=Car+Wash+%26+Detail+—+TEMP",
-      alt: "Car wash and detailing — TEMP placeholder",
+      src: placeholderImage(["carwash", "car"], 800, 450, 101),
+      alt: "Car wash and detailing — placeholder image, replace with real service photo",
     },
     {
-      src: "https://placehold.co/400x400/0d0b6f/d03a8a?text=Interior+Detail+—+TEMP",
-      alt: "Interior detailing — TEMP placeholder",
+      src: placeholderImage(["car", "interior"], 400, 400, 102),
+      alt: "Interior detailing — placeholder image, replace with real service photo",
     },
     {
-      src: "https://placehold.co/400x400/090760/9dc0d4?text=Exterior+Polish+—+TEMP",
-      alt: "Exterior polishing — TEMP placeholder",
+      src: placeholderImage(["car", "polish"], 400, 400, 103),
+      alt: "Exterior polishing — placeholder image, replace with real service photo",
     },
   ],
   "paint-accident-repairs": [
     {
-      src: "https://placehold.co/800x450/07055a/d03a8a?text=Paint+%26+Repairs+—+TEMP",
-      alt: "Paint and accident repair — TEMP placeholder",
+      src: placeholderImage(["car", "paint"], 800, 450, 104),
+      alt: "Paint and accident repair — placeholder image, replace with real service photo",
     },
     {
-      src: "https://placehold.co/400x400/0d0b6f/9dc0d4?text=Panel+Beating+—+TEMP",
-      alt: "Panel beating — TEMP placeholder",
+      src: placeholderImage(["car", "bodywork"], 400, 400, 105),
+      alt: "Panel beating — placeholder image, replace with real service photo",
     },
     {
-      src: "https://placehold.co/400x400/090760/d03a8a?text=Paint+Booth+—+TEMP",
-      alt: "Paint booth — TEMP placeholder",
+      src: placeholderImage(["car", "spraypaint"], 400, 400, 106),
+      alt: "Paint booth — placeholder image, replace with real service photo",
     },
   ],
   "customisation-tuning": [
     {
-      src: "https://placehold.co/800x450/07055a/9dc0d4?text=Customisation+%26+Tuning+—+TEMP",
-      alt: "Customisation and tuning — TEMP placeholder",
+      src: placeholderImage(["car", "custom"], 800, 450, 107),
+      alt: "Customisation and tuning — placeholder image, replace with real service photo",
     },
     {
-      src: "https://placehold.co/400x400/0d0b6f/d03a8a?text=Vinyl+Wrap+—+TEMP",
-      alt: "Vinyl wrap — TEMP placeholder",
+      src: placeholderImage(["car", "vinylwrap"], 400, 400, 108),
+      alt: "Vinyl wrap — placeholder image, replace with real service photo",
     },
     {
-      src: "https://placehold.co/400x400/090760/9dc0d4?text=Performance+Tune+—+TEMP",
-      alt: "Performance tuning — TEMP placeholder",
+      src: placeholderImage(["car", "engine"], 400, 400, 109),
+      alt: "Performance tuning — placeholder image, replace with real service photo",
     },
   ],
 };
@@ -128,9 +131,29 @@ const SERVICE_GALLERIES: Record<
 export default function ServicesPage() {
   return (
     <>
+      {SERVICES.map((service) => (
+        <script
+          key={service.id}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema(service)) }}
+        />
+      ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: 'Home', path: '/' },
+              { name: 'Services', path: '/services' },
+            ])
+          ),
+        }}
+      />
+
       {/* Page hero */}
       <section className="bg-section py-16 md:py-20 border-b border-divider">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
           <span className="brand-label text-accent text-xs">
             What We Offer
           </span>
