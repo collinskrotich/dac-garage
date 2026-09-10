@@ -11,7 +11,6 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { BUSINESS, BRANCHES, SERVICES, WHY_US, SITE_FAQS } from "@/lib/constants";
 import { TESTIMONIALS } from "@/lib/testimonials";
 import { getAllArticles } from "@/lib/blog";
-import { placeholderImage } from "@/lib/placeholder-image";
 import {
   localBusinessSchema,
   organizationSchema,
@@ -111,7 +110,7 @@ export default function HomePage() {
         {/* TEMP background image — replace src with real garage photo */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={placeholderImage(["garage", "mechanic"], 1920, 1080, 601)}
+            src={"/generated/img-garage-mechanic-1920x1080-601.jpg"}
             alt=""
             aria-hidden="true"
             fill
@@ -394,12 +393,12 @@ export default function HomePage() {
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
           {[
-            { label: "Car Wash Detail", src: placeholderImage(["carwash"], 400, 400, 602) },
-            { label: "Paint Repair", src: placeholderImage(["car", "paint"], 400, 400, 603) },
-            { label: "Custom Wrap", src: placeholderImage(["car", "vinylwrap"], 400, 400, 604) },
-            { label: "Before / After", src: placeholderImage(["car", "detailing"], 400, 400, 605) },
-            { label: "Engine Detail", src: placeholderImage(["engine", "car"], 400, 400, 606) },
-            { label: "Alloy Refurb", src: placeholderImage(["wheel", "alloy"], 400, 400, 607) },
+            { label: "Car Wash Detail", src: "/our-work/image1.jpg" },
+            { label: "Paint Repair", src: "/our-work/image2.jpg" },
+            { label: "Custom Wrap", src: "/our-work/image3.jpg" },
+            { label: "Before / After", src: "/our-work/image4.jpg" },
+            { label: "Engine Detail", src: "/our-work/image5.jpg" },
+            { label: "Alloy Refurb", src: "/our-work/image6.jpg" },
           ].map((item, i) => (
             <a
               key={i}
