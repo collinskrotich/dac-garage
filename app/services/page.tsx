@@ -4,7 +4,6 @@ import { Section } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BUSINESS, SERVICES } from "@/lib/constants";
 import { breadcrumbSchema, serviceSchema } from "@/lib/structured-data";
-import { placeholderImage } from "@/lib/placeholder-image";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -86,44 +85,44 @@ const SERVICE_GALLERIES: Record<
 > = {
   "car-wash-detailing": [
     {
-      src: placeholderImage(["carwash", "car"], 800, 450, 101),
-      alt: "Car wash and detailing — placeholder image, replace with real service photo",
+      src: '/generated/img-carwash-car-800x450-101.jpg',
+      alt: "Car wash and premium detailing service at DAC Auto",
     },
     {
-      src: placeholderImage(["car", "interior"], 400, 400, 102),
-      alt: "Interior detailing — placeholder image, replace with real service photo",
+      src: '/generated/img-car-interior-400x400-102.jpg',
+      alt: "Interior deep cleaning and detailing service",
     },
     {
-      src: placeholderImage(["car", "polish"], 400, 400, 103),
-      alt: "Exterior polishing — placeholder image, replace with real service photo",
+      src: '/generated/img-car-polish-400x400-103.jpg',
+      alt: "Machine polishing for a glossy exterior finish",
     },
   ],
   "paint-accident-repairs": [
     {
-      src: placeholderImage(["car", "paint"], 800, 450, 104),
-      alt: "Paint and accident repair — placeholder image, replace with real service photo",
+      src: '/generated/img-car-paint-800x450-104.jpg',
+      alt: "Paint and accident repair service in the DAC Auto paint booth",
     },
     {
-      src: placeholderImage(["car", "bodywork"], 400, 400, 105),
-      alt: "Panel beating — placeholder image, replace with real service photo",
+      src: '/generated/img-car-bodywork-400x400-105.jpg',
+      alt: "Panel beating and bodywork repair service",
     },
     {
-      src: placeholderImage(["car", "spraypaint"], 400, 400, 106),
-      alt: "Paint booth — placeholder image, replace with real service photo",
+      src: '/generated/img-car-spraypaint-400x400-106.jpg',
+      alt: "Spray painting in a professional auto paint booth",
     },
   ],
   "customisation-tuning": [
     {
-      src: placeholderImage(["car", "custom"], 800, 450, 107),
-      alt: "Customisation and tuning — placeholder image, replace with real service photo",
+      src: '/generated/img-car-custom-800x450-107.jpg',
+      alt: "Custom vehicle modification and tuning at DAC Auto",
     },
     {
-      src: placeholderImage(["car", "vinylwrap"], 400, 400, 108),
-      alt: "Vinyl wrap — placeholder image, replace with real service photo",
+      src: '/generated/img-car-vinylwrap-400x400-108.jpg',
+      alt: "Vinyl wrap installation for a colour change or protection",
     },
     {
-      src: placeholderImage(["car", "engine"], 400, 400, 109),
-      alt: "Performance tuning — placeholder image, replace with real service photo",
+      src: '/generated/img-car-engine-400x400-109.jpg',
+      alt: "Engine performance tuning and maintenance",
     },
   ],
 };

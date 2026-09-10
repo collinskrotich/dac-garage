@@ -4,7 +4,6 @@
  * Images are topic-relevant online stock placeholders (loremflickr) — replace with
  * real product/service photos and approved prices before launch.
  */
-import { placeholderImage } from '@/lib/placeholder-image'
 
 export interface Product {
   id: string
@@ -27,8 +26,8 @@ export const PRODUCTS: Product[] = [
       'Full interior and exterior detail — hand wash, clay bar decontamination, interior deep clean, and wax protection.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['car', 'detailing'], 600, 600, 301),
-      alt: 'Signature detail package — placeholder image, replace with real service photo',
+      src: '/generated/img-car-detailing-600x600-301.jpg',
+      alt: 'Full interior and exterior car detailing service',
     },
     fitmentNote: 'Suitable for sedans, SUVs and vans. Price varies by vehicle size.',
   },
@@ -39,8 +38,8 @@ export const PRODUCTS: Product[] = [
     description: 'Quick exterior wash, tyre shine, and interior vacuum — done while you wait.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['carwash'], 600, 600, 302),
-      alt: 'Express wash package — placeholder image, replace with real service photo',
+      src: '/generated/img-carwash-600x600-302.jpg',
+      alt: 'Express car wash with foam and vacuum service',
     },
   },
   {
@@ -51,8 +50,8 @@ export const PRODUCTS: Product[] = [
       'A full damage assessment with a written repair quote — ready to share with your insurer.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['car', 'dent'], 600, 600, 303),
-      alt: 'Accident repair assessment — placeholder image, replace with real service photo',
+      src: '/generated/img-car-dent-600x600-303.jpg',
+      alt: 'Vehicle accident damage assessment and repair quote service',
     },
   },
   {
@@ -62,8 +61,8 @@ export const PRODUCTS: Product[] = [
     description: 'A curated range of alloy wheel sets for popular Nairobi vehicle models.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['wheel', 'alloy'], 600, 600, 304),
-      alt: 'Alloy wheel set — placeholder image, replace with real product photo',
+      src: '/generated/img-wheel-alloy-600x600-304.jpg',
+      alt: 'Alloy wheel set for sale',
     },
     fitmentNote: 'Confirm bolt pattern and size for your exact model before ordering.',
   },
@@ -74,8 +73,8 @@ export const PRODUCTS: Product[] = [
     description: 'Matte, gloss, and satin vinyl wrap colours for full or partial vehicle wraps.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['car', 'vinylwrap'], 600, 600, 305),
-      alt: 'Vinyl wrap colour swatches — placeholder image, replace with real product photo',
+      src: '/generated/img-car-vinylwrap-600x600-305.jpg',
+      alt: 'Vinyl wrap colour range for full or partial vehicle wraps',
     },
   },
   {
@@ -85,8 +84,8 @@ export const PRODUCTS: Product[] = [
     description: 'Quality synthetic-blend engine oil, topped up or fully changed by our technicians.', // TEMP [COPY]
     price: 1200, // TEMP [COPY]: confirm current price
     image: {
-      src: placeholderImage(['motoroil'], 600, 600, 306),
-      alt: 'Engine oil bottle — placeholder image, replace with real product photo',
+      src: '/generated/img-motoroil-600x600-306.jpg',
+      alt: 'Engine oil 5W-30 synthetic blend',
     },
   },
   {
@@ -96,8 +95,8 @@ export const PRODUCTS: Product[] = [
     description: 'OEM-spec brake pad sets, supplied and fitted by our technicians.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['brakes', 'car'], 600, 600, 307),
-      alt: 'Brake pad set — placeholder image, replace with real product photo',
+      src: '/generated/img-brakes-car-600x600-307.jpg',
+      alt: 'Brake pad set for front or rear axle',
     },
     fitmentNote: 'Price depends on vehicle make and model — confirm fitment on enquiry.',
   },
@@ -108,8 +107,8 @@ export const PRODUCTS: Product[] = [
     description: 'Replacement car batteries with free testing and fitting at either branch.', // TEMP [COPY]
     price: null,
     image: {
-      src: placeholderImage(['carbattery'], 600, 600, 308),
-      alt: 'Car battery — placeholder image, replace with real product photo',
+      src: '/generated/img-carbattery-600x600-308.jpg',
+      alt: 'Car battery replacement for standard vehicle sizes',
     },
   },
 ]

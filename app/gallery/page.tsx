@@ -2,7 +2,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
 import { BUSINESS } from "@/lib/constants";
-import { placeholderImage } from "@/lib/placeholder-image";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -19,73 +18,73 @@ const GALLERY_ITEMS = [
   {
     label: "Full Detail — Before",
     category: "Car Wash & Detailing",
-    src: placeholderImage(["car", "dirty"], 800, 600, 201),
+    src: '/generated/img-car-dirty-800x600-201.jpg',
     type: "before" as const,
   },
   {
     label: "Full Detail — After",
     category: "Car Wash & Detailing",
-    src: placeholderImage(["carwash", "clean"], 800, 600, 202),
+    src: '/generated/img-carwash-clean-800x600-202.jpg',
     type: "after" as const,
   },
   {
     label: "Dent Repair — Before",
     category: "Paint & Accident Repairs",
-    src: placeholderImage(["car", "dent"], 800, 600, 203),
+    src: '/generated/img-car-dent-800x600-203.jpg',
     type: "before" as const,
   },
   {
     label: "Dent Repair — After",
     category: "Paint & Accident Repairs",
-    src: placeholderImage(["car", "bodywork"], 800, 600, 204),
+    src: '/generated/img-car-bodywork-800x600-204.jpg',
     type: "after" as const,
   },
   {
     label: "Vinyl Wrap — Before",
     category: "Customisation & Tuning",
-    src: placeholderImage(["car", "plain"], 800, 600, 205),
+    src: '/generated/img-car-plain-800x600-205.jpg',
     type: "before" as const,
   },
   {
     label: "Vinyl Wrap — After",
     category: "Customisation & Tuning",
-    src: placeholderImage(["car", "vinylwrap"], 800, 600, 206),
+    src: '/generated/img-car-vinylwrap-800x600-206.jpg',
     type: "after" as const,
   },
   {
     label: "Full Respray — Before",
     category: "Paint & Accident Repairs",
-    src: placeholderImage(["car", "rust"], 800, 600, 207),
+    src: '/generated/img-car-rust-800x600-207.jpg',
     type: "before" as const,
   },
   {
     label: "Full Respray — After",
     category: "Paint & Accident Repairs",
-    src: placeholderImage(["car", "paint"], 800, 600, 208),
+    src: '/generated/img-car-paint-800x600-208.jpg',
     type: "after" as const,
   },
   {
     label: "Interior Detail — Before",
     category: "Car Wash & Detailing",
-    src: placeholderImage(["car", "interior", "dirty"], 800, 600, 209),
+    src: '/generated/img-car-interior-dirty-800x600-209.jpg',
     type: "before" as const,
   },
   {
     label: "Interior Detail — After",
     category: "Car Wash & Detailing",
-    src: placeholderImage(["car", "interior"], 800, 600, 210),
+    src: '/generated/img-car-interior-800x600-210.jpg',
     type: "after" as const,
   },
   {
     label: "Alloy Refurb — Before",
     category: "Customisation & Tuning",
-    src: placeholderImage(["wheel", "rusty"], 800, 600, 211),
+    src: '/generated/img-wheel-rusty-800x600-211.jpg',
     type: "before" as const,
   },
   {
     label: "Alloy Refurb — After",
     category: "Customisation & Tuning",
-    src: placeholderImage(["wheel", "alloy"], 800, 600, 212),
+    src: '/generated/img-wheel-alloy-800x600-212.jpg',
     type: "after" as const,
   },
 ];

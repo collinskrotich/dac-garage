@@ -5,7 +5,6 @@
  * publishing, and safety-sensitive procedures (tyres, brakes) carry a disclaimer.
  */
 
-import { placeholderImage } from '@/lib/placeholder-image'
 
 export const BLOG_CATEGORIES = [
   'Insurance',
@@ -53,7 +52,7 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 7,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['car', 'accident'], 1200, 675, 401),
+      src: "/blogs/image1.jpg",
       alt: 'Vehicle damage assessment — placeholder image, replace with real garage photo',
     },
     disclaimer:
@@ -111,7 +110,7 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 5,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['mechanic', 'garage'], 1200, 675, 402),
+      src: "/blogs/image2.jpg",
       alt: 'Technician inspecting a vehicle — placeholder image, replace with real garage photo',
     },
     sections: [
@@ -161,7 +160,7 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 6,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['mechanic', 'inspection'], 1200, 675, 403),
+      src: "/blogs/image3.jpg",
       alt: 'Vehicle inspection — placeholder image, replace with real garage photo',
     },
     sections: [
@@ -211,8 +210,8 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 6,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['car', 'dealership'], 1200, 675, 404),
-      alt: 'Newly purchased car handover — placeholder image, replace with real garage photo',
+      src: '/generated/img-car-dealership-1200x675-404.jpg',
+      alt: 'Newly purchased car handover at a dealership showroom',
     },
     sections: [
       {
@@ -261,8 +260,8 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 5,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['driving', 'car'], 1200, 675, 405),
-      alt: 'New driver checking their vehicle — placeholder image, replace with real garage photo',
+      src: '/generated/img-driving-car-1200x675-405.jpg',
+      alt: 'New driver checking tyres on their car before setting off',
     },
     disclaimer:
       'This guide covers vehicle-care habits and is not a substitute for a certified driving school or formal road-rules instruction.',
@@ -313,8 +312,8 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 6,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['tire', 'car'], 1200, 675, 406),
-      alt: 'Changing a car tyre — placeholder image, replace with real garage photo',
+      src: '/generated/img-tire-car-1200x675-406.jpg',
+      alt: 'Safely changing a flat car tyre on the roadside using a jack',
     },
     disclaimer:
       'Only change a tyre roadside if you can pull well clear of moving traffic. If you cannot do so safely, call for roadside assistance instead.',
@@ -373,8 +372,8 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 4,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['engine', 'oil'], 1200, 675, 407),
-      alt: 'Checking engine oil with a dipstick — placeholder image, replace with real garage photo',
+      src: '/generated/img-engine-oil-1200x675-407.jpg',
+      alt: 'Checking engine oil level with a dipstick in a car engine bay',
     },
     sections: [
       {
@@ -425,8 +424,8 @@ export const ARTICLES: Article[] = [
     readingTimeMinutes: 5,
     author: 'DAC Auto Team',
     heroImage: {
-      src: placeholderImage(['brakes', 'car'], 1200, 675, 408),
-      alt: 'Inspecting brake pads and disc — placeholder image, replace with real garage photo',
+      src: '/generated/img-brakes-car-1200x675-408.jpg',
+      alt: 'Mechanic measuring brake pad thickness with calipers on a lifted vehicle',
     },
     disclaimer:
       'A visual check can flag obvious wear, but brake components are safety-critical. Have any suspected issue confirmed by a technician before continuing to drive.',

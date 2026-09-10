@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
 import { TrustStats } from "@/components/TrustStats";
 import { BUSINESS } from "@/lib/constants";
-import { placeholderImage } from "@/lib/placeholder-image";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -22,25 +21,25 @@ const TEAM = [
   {
     name: "Team Member", // TEMP [COPY]: Replace with actual name
     role: "Lead Technician", // TEMP [COPY]
-    src: placeholderImage(["mechanic", "portrait"], 300, 300, 501),
+    src: "/generated/img-mechanic-portrait-300x300-501.jpg",
     alt: "Team member photo — placeholder image, replace with real staff photo",
   },
   {
     name: "Team Member", // TEMP [COPY]
     role: "Paint & Body Specialist", // TEMP [COPY]
-    src: placeholderImage(["mechanic", "portrait"], 300, 300, 502),
+    src: "/generated/img-mechanic-portrait-300x300-502.jpg",
     alt: "Team member photo — placeholder image, replace with real staff photo",
   },
   {
     name: "Team Member", // TEMP [COPY]
     role: "Detailing Expert", // TEMP [COPY]
-    src: placeholderImage(["mechanic", "portrait"], 300, 300, 503),
+    src: "/generated/img-mechanic-portrait-300x300-503.jpg",
     alt: "Team member photo — placeholder image, replace with real staff photo",
   },
   {
     name: "Team Member", // TEMP [COPY]
     role: "Customisation Specialist", // TEMP [COPY]
-    src: placeholderImage(["mechanic", "portrait"], 300, 300, 504),
+    src: "/generated/img-mechanic-portrait-300x300-504.jpg",
     alt: "Team member photo — placeholder image, replace with real staff photo",
   },
 ];
@@ -100,7 +99,7 @@ export default function AboutPage() {
           {/* Story image — TEMP */}
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-divider">
             <Image
-              src={placeholderImage(["garage", "mechanic"], 800, 600, 505)}
+              src={"/generated/img-garage-mechanic-800x600-505.jpg"}
               alt="DAC Auto Clinic garage — placeholder image, replace with real garage photo"
               fill
               className="object-cover"
